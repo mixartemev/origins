@@ -35,7 +35,7 @@ class Link extends \yii\db\ActiveRecord
     {
         return [
             [['child_id', 'parent_id', 'user_id'], 'integer'],
-            [['user_id'], 'required'],
+            [['child_id', 'parent_id'/*, 'user_id'*/], 'required'],
             [['created_at'], 'safe'],
             [['description'], 'string', 'max' => 255],
             [['child_id'], 'unique', 'targetAttribute' => ['child_id', 'parent_id']], //уникальность комбинации полей
@@ -82,5 +82,13 @@ class Link extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id'])->inverseOf('links');
+    }
+
+    public function beforeSave($insert)
+    {
+        if($insert){
+            $this->user_id = Yii::$app->user->id;
+        }
+        return parent::beforeSave($insert);
     }
 }

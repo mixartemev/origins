@@ -1,5 +1,6 @@
 <?php
 
+use app\models\Word;
 use kartik\select2\Select2;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
@@ -15,13 +16,13 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'child_id')->widget(Select2::className(), [
-            'data' => ArrayHelper::map($model::find()->all(), 'id', 'word'),
+            'data' => ArrayHelper::map(Word::find()->all(), 'id', 'word'),
             'options' => ['placeholder' => Yii::t('app', 'Select word')]
         ]
     ) ?>
 
     <?= $form->field($model, 'parent_id')->widget(Select2::className(), [
-            'data' => ArrayHelper::map($model::find()->all(), 'id', 'word'),
+            'data' => ArrayHelper::map(Word::find()->all(), 'id', 'word'),
             'options' => ['placeholder' => Yii::t('app', 'Originated from')]
         ]
     ) ?>
