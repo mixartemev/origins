@@ -87,7 +87,7 @@ class Link extends \yii\db\ActiveRecord
     public function beforeSave($insert)
     {
         if($insert){
-            $this->user_id = Yii::$app->user->id;
+            $this->user_id = Yii::$app->user->id ?: 0;
         }
         return parent::beforeSave($insert);
     }
