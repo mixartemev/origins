@@ -52,10 +52,10 @@ class Link extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('app', 'ID'),
-            'child_id' => Yii::t('app', 'Child ID'),
-            'parent_id' => Yii::t('app', 'Parent ID'),
+            'child.word' => Yii::t('app', 'Child'),
+            'parent.word' => Yii::t('app', 'Parent'),
             'description' => Yii::t('app', 'Description'),
-            'user_id' => Yii::t('app', 'User ID'),
+            'user.name' => Yii::t('app', 'User'),
             'created_at' => Yii::t('app', 'Created At'),
         ];
     }
