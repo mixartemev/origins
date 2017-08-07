@@ -11,7 +11,6 @@ $this->title = Yii::$app->name;
 
         <p class="lead">Origins</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
     </div>
 
     <div class="body-content">
