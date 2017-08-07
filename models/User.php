@@ -269,6 +269,13 @@ class User extends ActiveRecord implements IdentityInterface
         return "/ava/$src.jpg";
     }
 
+	/**
+	 * @return \yii\db\ActiveQuery
+	 */
+	public function getLinks()
+	{
+		return $this->hasMany(Link::className(), ['user_id' => 'id'])->inverseOf('user');
+	}
 
     /**
      * Generates "remember me" authentication key
